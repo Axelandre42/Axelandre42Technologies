@@ -1,5 +1,6 @@
 #Gradle useless :
 .gradle/
+bin/
 
 #Eclipse useless :
 eclipse/
