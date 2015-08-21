@@ -1,1 +1,8 @@
+#Gradle useless :
+.gradle/
+
+#Eclipse useless :
 eclipse/
+.classpath
+.project
+.settings
