@@ -1,6 +1,8 @@
 package net.axelandre42.technologies;
 
 import net.axelandre42.technologies.common.A42TCommonProxy;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -18,9 +20,14 @@ public class Axelandre42Technologies {
 	@Instance(value = "Axelandre42Technologies")
 	public static Axelandre42Technologies instance;
 	
-	public Axelandre42Technologies() {
+	public static CreativeTabs tabAxelandre42Technologies = new CreativeTabs("axelandre42Technologies") {
 		
-	}
+		@Override
+		public Item getTabIconItem() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	};
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
