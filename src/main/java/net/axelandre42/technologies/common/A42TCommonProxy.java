@@ -1,5 +1,6 @@
 package net.axelandre42.technologies.common;
 
+import net.axelandre42.technologies.common.init.Blocks;
 import net.axelandre42.technologies.common.init.Registries;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -11,6 +12,9 @@ public class A42TCommonProxy {
 	public void preInit(FMLPreInitializationEvent e) {
 		Registries.construct();
 		Registries.addToAPI();
+		
+		Blocks.construct();
+		Blocks.register();
 	}
 	
 	public void init(FMLInitializationEvent e) {

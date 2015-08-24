@@ -17,8 +17,13 @@ public class ItemBlockAlpha extends ItemBlock {
 	}
 	
 	@Override
+	public String getUnlocalizedName() {
+		return "tile.alpha";
+	}
+	
+	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return names[stack.getItemDamage()];
+		return this.getUnlocalizedName() + "." + names[stack.getItemDamage()];
 	}
 	
 	@Override
