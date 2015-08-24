@@ -27,7 +27,6 @@ public class Axelandre42Technologies {
 		
 		@Override
 		public Item getTabIconItem() {
-			// TODO Auto-generated method stub
 			return Items.itemResearch;
 		}
 	};

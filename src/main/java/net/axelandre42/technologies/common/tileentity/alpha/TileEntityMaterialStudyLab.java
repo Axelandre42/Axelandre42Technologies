@@ -5,6 +5,8 @@ import net.axelandre42.technologies.common.init.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityMaterialStudyLab extends TileEntity implements
@@ -49,43 +51,36 @@ public class TileEntityMaterialStudyLab extends TileEntity implements
 
 	@Override
 	public String getInventoryName() {
-		// TODO Auto-generated method stub
 		return "inv.studylab.material";
 	}
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public int getInventoryStackLimit() {
-		// TODO Auto-generated method stub
 		return 64;
 	}
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public void openInventory() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void closeInventory() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
-		// TODO Auto-generated method stub
 		switch (slot) {
 		case 0:
 		case 1:
@@ -98,5 +93,37 @@ public class TileEntityMaterialStudyLab extends TileEntity implements
 		default:
 			return false;
 		}
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tagCompound) {
+		super.readFromNBT(tagCompound);
+		
+		NBTTagList tagInventory = tagCompound.getTagList("Inventory", 10);
+		for (int i = 0; i < tagInventory.tagCount(); i++) {
+			NBTTagCompound tagItem = tagInventory.getCompoundTagAt(i);
+			byte slot = tagItem.getByte("Slot");
+			if (slot >= 0 && slot < inv.length) {
+				inv[slot] = ItemStack.loadItemStackFromNBT(tagItem);
+			}
+		}
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tagCompound) {
+		super.writeToNBT(tagCompound);
+		
+		NBTTagList tagInventory = new NBTTagList();
+		for (int i = 0; i < inv.length; i++) {
+			ItemStack stack = inv[i];
+			if (stack != null) {
+				NBTTagCompound tagItem = new NBTTagCompound();
+				tagItem.setByte("Slot", (byte) i);
+				stack.writeToNBT(tagItem);
+				tagInventory.appendTag(tagItem);
+			}
+		}
+		
+		tagCompound.setTag("Inventory", tagInventory);
 	}
 }
