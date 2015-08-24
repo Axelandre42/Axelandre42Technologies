@@ -1,6 +1,7 @@
 package net.axelandre42.technologies;
 
 import net.axelandre42.technologies.common.A42TCommonProxy;
+import net.axelandre42.technologies.common.init.Items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
@@ -27,7 +28,7 @@ public class Axelandre42Technologies {
 		@Override
 		public Item getTabIconItem() {
 			// TODO Auto-generated method stub
-			return null;
+			return Items.itemResearch;
 		}
 	};
 	

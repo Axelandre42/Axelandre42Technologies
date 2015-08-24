@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.axelandre42.technologies.Axelandre42Technologies;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -14,6 +15,7 @@ public class ItemResearch extends Item {
 	
 	public ItemResearch() {
 		this.setCreativeTab(Axelandre42Technologies.tab);
+		this.setUnlocalizedName("research");
 	}
 	
 	@Override
@@ -24,7 +26,12 @@ public class ItemResearch extends Item {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(ItemStack stack, int renderPass) {
+		return icon;
+	}
+	
 	public IIcon getIconIndex(ItemStack stack) {
 		return icon;
 	}
+	
 }

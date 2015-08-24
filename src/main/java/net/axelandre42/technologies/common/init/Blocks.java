@@ -1,6 +1,7 @@
 package net.axelandre42.technologies.common.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.axelandre42.technologies.Axelandre42Technologies;
 import net.axelandre42.technologies.common.block.BlockAlpha;
 import net.axelandre42.technologies.common.item.ItemBlockAlpha;
 import net.minecraft.block.Block;

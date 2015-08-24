@@ -6,11 +6,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.axelandre42.technologies.Axelandre42Technologies;
 import net.axelandre42.technologies.common.init.Registries;
+import net.axelandre42.technologies.common.tileentity.alpha.TileEntityMaterialStudyLab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -33,7 +35,9 @@ public class BlockAlpha extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
-		
+		icons[0][0] = reg.registerIcon(Axelandre42Technologies.MODID + ":material_study_lab_bottom");
+		icons[0][1] = reg.registerIcon(Axelandre42Technologies.MODID + ":material_study_lab_top");
+		icons[0][2] = icons[0][3] = icons[0][4] = icons[0][5] = reg.registerIcon(Axelandre42Technologies.MODID + ":material_study_lab_side");
 	}
 	
 	@Override
@@ -45,7 +49,7 @@ public class BlockAlpha extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		
+		list.add(new ItemStack(this, 1, 0));
 	}
 	
 	@Override
@@ -55,6 +59,10 @@ public class BlockAlpha extends Block {
 	
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
+		switch (metadata) {
+		case 0:
+			return new TileEntityMaterialStudyLab();
+		}
 		return null;
 	}
 	

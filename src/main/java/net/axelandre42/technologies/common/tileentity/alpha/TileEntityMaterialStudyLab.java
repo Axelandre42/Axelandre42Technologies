@@ -1,5 +1,6 @@
 package net.axelandre42.technologies.common.tileentity.alpha;
 
+import net.axelandre42.technologies.common.init.Items;
 import net.axelandre42.technologies.common.init.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -92,12 +93,10 @@ public class TileEntityMaterialStudyLab extends TileEntity implements
 			return Lists.researchable.checkItemStack(stack);
 		case 3:
 		case 4:
-			break;
+			return ItemStack.areItemStacksEqual(stack, new ItemStack(Items.itemResearch));
 		case 5:
-			break;
+		default:
+			return false;
 		}
-		
-		return false;
 	}
-
 }
