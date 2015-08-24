@@ -11,8 +11,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "Axelandre42Technologies", version = "A0.001")
+@Mod(modid = Axelandre42Technologies.MODID, version = "A0.001")
 public class Axelandre42Technologies {
+	
+	public static final String MODID = "Axelandre42Technologies";
 	
 	@SidedProxy(clientSide = "net.axelandre42.technologies.client.A42TClientProxy", serverSide = "net.axelandre42.technologies.server.A42TServerProxy")
 	public static A42TCommonProxy proxy;
@@ -20,7 +22,7 @@ public class Axelandre42Technologies {
 	@Instance(value = "Axelandre42Technologies")
 	public static Axelandre42Technologies instance;
 	
-	public static CreativeTabs tabAxelandre42Technologies = new CreativeTabs("axelandre42Technologies") {
+	public static CreativeTabs tab = new CreativeTabs("axelandre42Technologies") {
 		
 		@Override
 		public Item getTabIconItem() {
