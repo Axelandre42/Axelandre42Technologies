@@ -5,6 +5,7 @@ import net.axelandre42.technologies.common.init.Blocks;
 import net.axelandre42.technologies.common.init.Items;
 import net.axelandre42.technologies.common.init.Lists;
 import net.axelandre42.technologies.common.init.Registries;
+import net.axelandre42.technologies.common.test.TestProperty;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -28,6 +29,7 @@ public class A42TCommonProxy {
 	
 	public void init(FMLInitializationEvent e) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(Axelandre42Technologies.instance, new A42TGuiHandler());
+		TestProperty.init();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e) {

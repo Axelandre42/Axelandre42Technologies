@@ -13,8 +13,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiMaterialStudyLab extends GuiContainer {
 
+	private TileEntityMaterialStudyLab tileentity;
+	
 	public GuiMaterialStudyLab(InventoryPlayer player, TileEntityMaterialStudyLab tileentity) {
 		super(new ContainerMaterialStudyLab(player, tileentity));
+		this.tileentity = tileentity;
 	}
 
 	@Override
@@ -25,8 +28,8 @@ public class GuiMaterialStudyLab extends GuiContainer {
 		
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
-		
-		this.drawTexturedModalRect(59, 33, xSize, 0, 25, 10);
+		int progress = (int) tileentity.getProgress() * 49;
+		this.drawTexturedModalRect(59, 33, xSize, 0, progress, 10);
 		
 		this.mc.fontRenderer.drawString(LanguageRegistry.instance().getStringLocalization("container.studyLab.material"), 8, 6, 0x404040);
 		this.mc.fontRenderer.drawString(LanguageRegistry.instance().getStringLocalization("container.inventory"), 8, ySize - 96 + 2, 0x404040);

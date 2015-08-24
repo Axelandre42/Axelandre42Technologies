@@ -16,6 +16,7 @@ public class ItemResearch extends Item {
 	public ItemResearch() {
 		this.setCreativeTab(Axelandre42Technologies.tab);
 		this.setUnlocalizedName("research");
+		this.setMaxStackSize(1);
 	}
 	
 	@Override
