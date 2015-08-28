@@ -28,7 +28,7 @@ public interface IResearchRegistry {
 	 * @param third an ItemStack that can be null
 	 * @return the property if there is, <strong>null</strong> if not.
 	 */
-	IProperty checkPropertyByItemStacks(ItemStack first, ItemStack second, ItemStack third);
+	IProperty checkPropertyByItemStacks(ItemStack... stack);
 	
 	/**
 	 * Used to get the research binded with the name.

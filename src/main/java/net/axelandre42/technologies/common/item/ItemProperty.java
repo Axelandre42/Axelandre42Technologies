@@ -6,7 +6,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.axelandre42.technologies.Axelandre42Technologies;
+import net.axelandre42.technologies.common.init.Registries;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -44,4 +46,6 @@ public class ItemProperty extends Item {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean aBool) {
 		list.add(LanguageRegistry.instance().getStringLocalization(stack.stackTagCompound.getString("PropertyName")));
 	}
+	
+	
 }

@@ -35,47 +35,27 @@ public class ResearchRegistry implements IResearchRegistry {
 		blueprints.put(blueprint.getUnlocalizedName(), blueprint);
 	}
 	
-	public IProperty checkPropertyByItemStacks(ItemStack first, ItemStack second, ItemStack third) {
-		ItemStack copyFirst = null, copySecond = null, copyThird = null;
-		if (first != null) {
-			copyFirst = first.copy();
-			copyFirst.stackSize = 1;
-		}
-		if (second != null) {
-			copySecond = second.copy();
-			copySecond.stackSize = 1;
-		}
-		if (third != null) {
-			copyThird = third.copy();
-			copyThird.stackSize = 1;
-		}
+	public IProperty checkPropertyByItemStacks(ItemStack... stack) {
 		
 		Set<String> keys = properties.keySet();
 		Iterator<String> keyIterator = keys.iterator();
 		for (int i = 0; i < keys.size(); i++) {
 			IProperty property = properties.get(keyIterator.next());
 			
-			boolean firstIsGood = false;
-			for (int j = 0; j < 3; j++) {
-				if (firstIsGood = ItemStack.areItemStacksEqual(property.getItemNeeded(j), copyFirst))
-					break;
+			boolean[] isGood = new boolean[stack.length];
+			for (int j = 0; j < stack.length; i++) {
+				for (int k = 0; k < 3; i++) {
+					if (property.getItemNeeded(k) != null && stack[j] != null) {
+						isGood[j] = property.getItemNeeded(k).getItem() == stack[j].getItem();
+					}
+				}
 			}
-			
-			boolean secondIsGood = false;
-			for (int j = 0; j < 3; j++) {
-				if (secondIsGood = ItemStack.areItemStacksEqual(property.getItemNeeded(j), copySecond))
-					break;
+			boolean allIsGood = false;
+			for (boolean uniqIsGood : isGood) {
+				allIsGood = uniqIsGood;
 			}
-			
-			boolean thirdIsGood = false;
-			for (int j = 0; j < 3; j++) {
-				if (thirdIsGood = ItemStack.areItemStacksEqual(property.getItemNeeded(j), copyThird))
-					break;
-			}
-			
-			if (firstIsGood && secondIsGood && thirdIsGood) {
+			if (allIsGood)
 				return property;
-			}
 		}
 		
 		return null;

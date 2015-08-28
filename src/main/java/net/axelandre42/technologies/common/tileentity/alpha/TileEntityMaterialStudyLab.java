@@ -41,12 +41,14 @@ public class TileEntityMaterialStudyLab extends TileEntity implements
 	@Override
 	public void updateEntity() {
 		if (inv[5] == null) {
-			IProperty property;
-			if ((property = Registries.researchRegistry.checkPropertyByItemStacks(inv[0], inv[1], inv[2])) != null) {
+			/*
+			IProperty property = Registries.researchRegistry.checkPropertyByItemStacks(inv[0], inv[1], inv[2]);
+			if (property != null) {
 				inv[5] = Registries.researchRegistry.createPropertyItemStack(property.getUnlocalizedName());
 			}
+			*/
 		} else {
-			
+			incrDescoveryProgress(inv[5]);
 		}
 	}
 	
