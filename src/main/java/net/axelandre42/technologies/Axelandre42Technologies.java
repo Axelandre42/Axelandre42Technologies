@@ -10,19 +10,27 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 	version = Axelandre42Technologies.VERSION,
 	dependencies = Axelandre42Technologies.DEPENDENCIES)
 public class Axelandre42Technologies {
+	
+	// ----------------------------------------
+	// Constants
+	
 	public static final String MODID = "axelandre42technologies";
 	public static final String NAME = "Axelandre42 Technologies";
 	public static final String VERSION = "A0.01.001";
 	public static final String DEPENDENCIES = "after: NotEnoughItems";
 	
+	// ----------------------------------------
+	// THE MOD'S INSTANCE !
+	
 	@Mod.Instance(value = MODID)
 	public static Axelandre42Technologies INSTANCE;
 	
+	// ----------------------------------------
+	// Event Handlers
+	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		A42T_CreativeTabs.load();
 		
-		A42T_Blocks.load();
 	}
 	
 	@Mod.EventHandler
