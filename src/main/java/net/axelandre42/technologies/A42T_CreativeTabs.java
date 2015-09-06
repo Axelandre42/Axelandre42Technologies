@@ -1,5 +1,6 @@
 package net.axelandre42.technologies;
 
+import net.axelandre42.technologies.init.A42T_Blocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -18,7 +19,7 @@ public class A42T_CreativeTabs extends CreativeTabs {
 	@Override
 	public Item getTabIconItem() {
 		// TODO Auto-generated method stub
-		return Item.getItemFromBlock(null);
+		return Item.getItemFromBlock(A42T_Blocks.copperCable);
 	}
 
 }
